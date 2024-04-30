@@ -20,7 +20,7 @@ parSim(
   reps = 1000,
   write = TRUE,
   # change name for other network sizes
-  name = "~/BDS-Master/Master thesis/R/Sim_data/Simulation_10_new",
+  name = "~/GitHub/Sum-Score-in-Network-Models/Data/sim_10_data.txt",
   nCores = 12,
   export = c("exp_sum"),
   progressbar = TRUE,
@@ -104,7 +104,7 @@ parSim(
     
     # write network away
     ## change file name for other network sizes
-    write.matrix(network, file = paste0("~/BDS-Master/Master thesis/R/Networks/network_new/network_10_", id, ".txt"))
+    write.matrix(network, file = paste0("~/GitHub/Sum-Score-in-Network-Models/Networks/network_10_", id, ".txt"))
     
     # calculate expected and observed sum scores
     sum_e <- exp_sum(network, tholds, responses = c(encoding, 1)) # expected sum score

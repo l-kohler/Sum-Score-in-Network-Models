@@ -30,7 +30,7 @@ The data used in this file is data from 10-node networks. Files for 5 and 15-nod
 
 ```{r}
 # load data
-data <- read.table("~/BDS-Master/Master thesis/R/Sim_data/Simulation_10_error_cor.txt",
+data <- read.table("~/GitHub/Sum-Score-in-Network-Models/Data/sim_10_error_cor_data.txt",
                    header = TRUE, sep = "")
 
 # change Sw_0 edge weights
@@ -77,7 +77,7 @@ data <- data %>% mutate(con = connectivity(model))
 # data <- data %>% mutate(network = I(list(matrix(nrow = 10, ncol = 10))))
 # ## add network matrices
 # for (i in 1:nrow(data)) {
-#   network <- read.table(paste0("~/BDS-Master/Master thesis/R/Networks/network_new/network_10_", i, ".txt"))
+#   network <- read.table(paste0("~/GitHub/Sum-Score-in-Network-Models/Networks/network_10_", i, ".txt"))
 #   data[[i, "network"]] <- I(list(network))
 #}
 ```

@@ -28,7 +28,7 @@ The data used in this file is data from 15-node networks. Files for 5 and 10-nod
 
 ```{r}
 # load data
-data_15 <- read.table("~/BDS-Master/Master thesis/R/Sim_data/Simulation_15_new.txt",
+data_15 <- read.table("~/GitHub/Sum-Score-in-Network-Models/Data/sim_15_data.txt",
                    header = TRUE, sep = "")
 
 # change Sw_0 edge weights

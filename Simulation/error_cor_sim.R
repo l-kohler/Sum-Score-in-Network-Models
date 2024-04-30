@@ -12,6 +12,10 @@ exp_state <- function(graph, thresholds, size, beta = 1, responses) {
   return(e_state)
 }
 
+# read simulation data
+data <- read.table("~/GitHub/Sum-Score-in-Network-Models/Data/sim_10_data.txt",
+                   header = TRUE, sep = "")
+
 # compute error correlations
 ## register back end
 cl <- parallel::makeCluster(6)
@@ -24,7 +28,7 @@ clusterEvalQ(cl = cl, library("IsingSampler"))
 error_corr_M <- 
   foreach (i = 1:nrow(data), .combine = "c") %dopar% {
     # read
-    network <- read.table(paste0("~/BDS-Master/Master thesis/R/Networks/network_new/network_10_", i, ".txt")) %>%
+    network <- read.table(paste0("~/GitHub/Sum-Score-in-Network-Models/Networks/network_10_", i, ".txt")) %>%
     as.matrix() %>% matrix(nrow = 10, ncol = 10)
     config_o <- IsingSampler(n = 1000, network,
                              data$tholds[i,],
@@ -57,5 +61,5 @@ data$error_corr_M <- NA
 data$error_corr_M <- error_corr_M
 
 # save new data frame
-write.table(data, file = "~/BDS-Master/Master thesis/R/Sim_data/Simulation_10_error_cor.txt",
+write.table(data, file = "~/GitHub/Sum-Score-in-Network-Models/Data/sim_10_error_cor_data.txt",
             sep = " ", row.names = FALSE)
